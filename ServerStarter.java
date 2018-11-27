@@ -6,7 +6,7 @@ import javax.xml.ws.Endpoint;
  
 public class ServerStarter {
 	//path where the service is available 
-	static final String BASE_URI_SOAP = "http://localhost:8090/SOAPServerInterface";
+	static final String BASE_URI_SOAP = "http://localhost:8090/ws/SOAPServerInterface";
     public static void main(String[] args) throws IOException {
         try {
         	//instantiate singleton class, server instantiates a object of the singleton class for which only one object can be instantiated

@@ -2,9 +2,8 @@ package ws;
 
 import javax.jws.WebService;
 
-//This class is the combined implementation for Restful & SOAP class which provide web services to REST and SOAP type of connections
 //for SOAP
-@WebService(endpointInterface = "ws.SOAPserverInterface")
+@WebService(endpointInterface = "ws.SOAPServerInterface")
 
 public class Services implements SOAPServerInterface{
 	private static Airport airportHandle;
@@ -14,8 +13,6 @@ public class Services implements SOAPServerInterface{
 		//Get handle of airport from Singleton 
 		airportHandle=Singleton.getAirportHandle();
 	}
-    //this method will add a item to user cart and after finishing return number of items in cart and a message
-	// returned xml format:<result><messagetouser>XXXX</messagetouser><totalitem>XX</totalitem></result>
 
     public String additemtocart(String flightNumber,String seatNumber,String seatType,String userID) {
  
@@ -27,7 +24,7 @@ public class Services implements SOAPServerInterface{
     	if(reservationHandle==null){													//if item not found in airport return message
     		messageToUser="The requested reservation not found in airport while customer trying to reserve seat in the cart";
     	}
-    	else{																//else take count of items beforeadding, add item to cart
+    	else{																//else take count of items before adding, add item to cart
     		itembefore = customerHandle.getshoppingCart().gettotalItem();				
     		itemafter  = customerHandle.addReservationToMyCart(reservationHandle);
 
@@ -50,7 +47,7 @@ public class Services implements SOAPServerInterface{
     	return messageToUser;
     }
 
-    //This method will return list of available seats in Boeing737 
+    //This method will return list of available seats in Boeing737 for the chosen slot and day
    
     public String BoeingList() {
 		
@@ -62,7 +59,7 @@ public class Services implements SOAPServerInterface{
 		
         return airportHandle.showItemList("Airbus319");
     }
-   
+   //takes in the timeslot and day selected for the embraer flgith number and displays the remaining seats in that flight
     public String EmbraerList() {
 	
         return airportHandle.showItemList("Embraer170");
@@ -80,35 +77,30 @@ public class Services implements SOAPServerInterface{
     //message for each item and make total item in cart as 0 by returning 0
    
     @SuppressWarnings("unused")
-	public String buyitems(String userID) {
+	public String buyitems(String userID,String flightNumber,String seatNumber) {
     	
     	String messageToUser="";
     	String sellResponse="";
-    	int totalitems=0;
-    	//get the list of items from customer cart and call sellReservation to remove item from airport
-    	//if item is already sold to another customer send message accordingly
-    	//call buyReservations to remove all items from customer cart
-    	customerHandle=Singleton.getCustomerhandle(userID);
-    	Reservation abc = customerHandle.getshoppingCart().getitemsInCart();
-    	String flightNumber = abc.getFlightNumber();
-    	String seatNumber = abc.getSeatNumber();
-    	if(!(abc==null))
-    	{		//if cart is not empty take items from customer cart and sell
+//    	int totalitems=0;
+//    	get the list of items from customer cart and call sellReservation to remove item from airport
+//    	if item is already sold to another customer send message accordingly
+//    	call buyReservations to remove all items from customer cart
+//    	customerHandle=Singleton.getCustomerhandle(userID);
+//    	Reservation abc = customerHandle.getshoppingCart().getitemsInCart();
+    	
+//    	if(!(abc==null))
+    	//if cart is not empty take items from customer cart and sell
     		sellResponse = airportHandle.sellReservation(flightNumber,seatNumber);
 
     			if(sellResponse.equals("Reservation not in Airport!"))
- 				messageToUser="This combination of flight Number and seat is already sold out!"+abc.getFlightNumber()+" "+abc.getSeatNumber();
-		
+    			messageToUser="This combination of flight Number and seat is already sold out!"+flightNumber+" "+seatNumber;
 			else{
-				messageToUser="<messagetouser>Thanks! Reservation ready for dispatch from airport: "+abc.getFlightNumber()+" "+abc.getSeatNumber();
+				messageToUser="<messagetouser>Thanks! Reservation ready for dispatch from airport: "+flightNumber+" "+seatNumber;
 				}
-    			totalitems=customerHandle.buyReservations();				//remove all item from customer cart
-    	}
-    	else
-    	{																	//else send empty cart message
-    		messageToUser="<messagetouser>"+"Cart is empty, please add items in cart"+"</messagetouser>";
-    	}
+    			//totalitems=customerHandle.buyReservations();				//remove all item from customer cart
     	return  messageToUser;
     	}
+
+
 
 }

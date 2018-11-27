@@ -45,7 +45,7 @@ public class Airport {
 			if(AirBus319List.containsKey(seatNumber))
 			{
 					AirBus319List.remove(seatNumber);
-					response="eservation made in the Airbus 319";	
+					response="Reservation made in the Airbus 319";	
 			}
 			else {
 					response="Reservation done by someone else!";
@@ -179,9 +179,9 @@ public class Airport {
 				if(!Boeing737List.isEmpty()){
 					for(Map.Entry<String, Reservation> entry : Boeing737List.entrySet()){
 
-						seatNumber =" Seat Number: "+entry.getValue().getSeatNumber();
-						seatPrice =" Seat Price: "+entry.getValue().getSeatPrice();
-						seatType =" Seat Type "+entry.getValue().getSeatType();					
+						seatNumber =entry.getValue().getSeatNumber()+",";
+						seatPrice =entry.getValue().getSeatPrice()+",";
+						seatType =entry.getValue().getSeatType()+",;";					
 						Value= Value +  seatNumber + seatPrice + seatType;
 					}
 				}
