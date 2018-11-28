@@ -25,17 +25,13 @@ import javax.xml.namespace.QName;
 public class ObjectFactory {
 
     private final static QName _ViewcartResponse_QNAME = new QName("http://ws/", "viewcartResponse");
+    private final static QName _Additemtocart_QNAME = new QName("http://ws/", "additemtocart");
+    private final static QName _FlightList_QNAME = new QName("http://ws/", "flightList");
+    private final static QName _RemovefromcartResponse_QNAME = new QName("http://ws/", "removefromcartResponse");
     private final static QName _AdditemtocartResponse_QNAME = new QName("http://ws/", "additemtocartResponse");
     private final static QName _BuyitemsResponse_QNAME = new QName("http://ws/", "buyitemsResponse");
-    private final static QName _BoeingListResponse_QNAME = new QName("http://ws/", "BoeingListResponse");
+    private final static QName _FlightListResponse_QNAME = new QName("http://ws/", "flightListResponse");
     private final static QName _Viewcart_QNAME = new QName("http://ws/", "viewcart");
-    private final static QName _AirbusListResponse_QNAME = new QName("http://ws/", "AirbusListResponse");
-    private final static QName _AirbusList_QNAME = new QName("http://ws/", "AirbusList");
-    private final static QName _EmbraerListResponse_QNAME = new QName("http://ws/", "EmbraerListResponse");
-    private final static QName _BoeingList_QNAME = new QName("http://ws/", "BoeingList");
-    private final static QName _Additemtocart_QNAME = new QName("http://ws/", "additemtocart");
-    private final static QName _RemovefromcartResponse_QNAME = new QName("http://ws/", "removefromcartResponse");
-    private final static QName _EmbraerList_QNAME = new QName("http://ws/", "EmbraerList");
     private final static QName _Removefromcart_QNAME = new QName("http://ws/", "removefromcart");
     private final static QName _Buyitems_QNAME = new QName("http://ws/", "buyitems");
 
@@ -55,6 +51,30 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link Additemtocart }
+     * 
+     */
+    public Additemtocart createAdditemtocart() {
+        return new Additemtocart();
+    }
+
+    /**
+     * Create an instance of {@link FlightList }
+     * 
+     */
+    public FlightList createFlightList() {
+        return new FlightList();
+    }
+
+    /**
+     * Create an instance of {@link RemovefromcartResponse }
+     * 
+     */
+    public RemovefromcartResponse createRemovefromcartResponse() {
+        return new RemovefromcartResponse();
+    }
+
+    /**
      * Create an instance of {@link AdditemtocartResponse }
      * 
      */
@@ -71,11 +91,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link BoeingListResponse }
+     * Create an instance of {@link FlightListResponse }
      * 
      */
-    public BoeingListResponse createBoeingListResponse() {
-        return new BoeingListResponse();
+    public FlightListResponse createFlightListResponse() {
+        return new FlightListResponse();
     }
 
     /**
@@ -84,62 +104,6 @@ public class ObjectFactory {
      */
     public Viewcart createViewcart() {
         return new Viewcart();
-    }
-
-    /**
-     * Create an instance of {@link AirbusListResponse }
-     * 
-     */
-    public AirbusListResponse createAirbusListResponse() {
-        return new AirbusListResponse();
-    }
-
-    /**
-     * Create an instance of {@link AirbusList }
-     * 
-     */
-    public AirbusList createAirbusList() {
-        return new AirbusList();
-    }
-
-    /**
-     * Create an instance of {@link EmbraerListResponse }
-     * 
-     */
-    public EmbraerListResponse createEmbraerListResponse() {
-        return new EmbraerListResponse();
-    }
-
-    /**
-     * Create an instance of {@link BoeingList }
-     * 
-     */
-    public BoeingList createBoeingList() {
-        return new BoeingList();
-    }
-
-    /**
-     * Create an instance of {@link Additemtocart }
-     * 
-     */
-    public Additemtocart createAdditemtocart() {
-        return new Additemtocart();
-    }
-
-    /**
-     * Create an instance of {@link RemovefromcartResponse }
-     * 
-     */
-    public RemovefromcartResponse createRemovefromcartResponse() {
-        return new RemovefromcartResponse();
-    }
-
-    /**
-     * Create an instance of {@link EmbraerList }
-     * 
-     */
-    public EmbraerList createEmbraerList() {
-        return new EmbraerList();
     }
 
     /**
@@ -168,6 +132,33 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Additemtocart }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://ws/", name = "additemtocart")
+    public JAXBElement<Additemtocart> createAdditemtocart(Additemtocart value) {
+        return new JAXBElement<Additemtocart>(_Additemtocart_QNAME, Additemtocart.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link FlightList }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://ws/", name = "flightList")
+    public JAXBElement<FlightList> createFlightList(FlightList value) {
+        return new JAXBElement<FlightList>(_FlightList_QNAME, FlightList.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link RemovefromcartResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://ws/", name = "removefromcartResponse")
+    public JAXBElement<RemovefromcartResponse> createRemovefromcartResponse(RemovefromcartResponse value) {
+        return new JAXBElement<RemovefromcartResponse>(_RemovefromcartResponse_QNAME, RemovefromcartResponse.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link AdditemtocartResponse }{@code >}}
      * 
      */
@@ -186,12 +177,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link BoeingListResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link FlightListResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://ws/", name = "BoeingListResponse")
-    public JAXBElement<BoeingListResponse> createBoeingListResponse(BoeingListResponse value) {
-        return new JAXBElement<BoeingListResponse>(_BoeingListResponse_QNAME, BoeingListResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://ws/", name = "flightListResponse")
+    public JAXBElement<FlightListResponse> createFlightListResponse(FlightListResponse value) {
+        return new JAXBElement<FlightListResponse>(_FlightListResponse_QNAME, FlightListResponse.class, null, value);
     }
 
     /**
@@ -201,69 +192,6 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://ws/", name = "viewcart")
     public JAXBElement<Viewcart> createViewcart(Viewcart value) {
         return new JAXBElement<Viewcart>(_Viewcart_QNAME, Viewcart.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AirbusListResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://ws/", name = "AirbusListResponse")
-    public JAXBElement<AirbusListResponse> createAirbusListResponse(AirbusListResponse value) {
-        return new JAXBElement<AirbusListResponse>(_AirbusListResponse_QNAME, AirbusListResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AirbusList }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://ws/", name = "AirbusList")
-    public JAXBElement<AirbusList> createAirbusList(AirbusList value) {
-        return new JAXBElement<AirbusList>(_AirbusList_QNAME, AirbusList.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link EmbraerListResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://ws/", name = "EmbraerListResponse")
-    public JAXBElement<EmbraerListResponse> createEmbraerListResponse(EmbraerListResponse value) {
-        return new JAXBElement<EmbraerListResponse>(_EmbraerListResponse_QNAME, EmbraerListResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link BoeingList }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://ws/", name = "BoeingList")
-    public JAXBElement<BoeingList> createBoeingList(BoeingList value) {
-        return new JAXBElement<BoeingList>(_BoeingList_QNAME, BoeingList.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Additemtocart }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://ws/", name = "additemtocart")
-    public JAXBElement<Additemtocart> createAdditemtocart(Additemtocart value) {
-        return new JAXBElement<Additemtocart>(_Additemtocart_QNAME, Additemtocart.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link RemovefromcartResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://ws/", name = "removefromcartResponse")
-    public JAXBElement<RemovefromcartResponse> createRemovefromcartResponse(RemovefromcartResponse value) {
-        return new JAXBElement<RemovefromcartResponse>(_RemovefromcartResponse_QNAME, RemovefromcartResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link EmbraerList }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://ws/", name = "EmbraerList")
-    public JAXBElement<EmbraerList> createEmbraerList(EmbraerList value) {
-        return new JAXBElement<EmbraerList>(_EmbraerList_QNAME, EmbraerList.class, null, value);
     }
 
     /**

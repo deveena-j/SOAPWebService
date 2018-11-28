@@ -7,14 +7,22 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
 import java.awt.GridLayout;
+
 import javax.swing.JLabel;
+
 import java.awt.Font;
+
+import javax.swing.JFormattedTextField;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.text.NumberFormat;
+
 import javax.swing.SwingConstants;
 import javax.swing.JToggleButton;
 
@@ -22,8 +30,9 @@ import javax.swing.JToggleButton;
 public class Login extends JFrame {
 
 	private JPanel contentPane;
-	public JTextField username;
+	public JTextField username,username_1;
 	private JButton btnNewButton;
+	private JLabel lblPleaseEnterYour;
 
 	/**
 	 * Launch the application.
@@ -63,7 +72,19 @@ public class Login extends JFrame {
 		username.setFont(new Font("Comic Sans MS", Font.BOLD, 15));
 		username.setColumns(20);
 		contentPane.add(username);
-	
+		
+		lblPleaseEnterYour = new JLabel("Please enter your age:");
+		lblPleaseEnterYour.setFont(new Font("Comic Sans MS", Font.BOLD, 15));
+		lblPleaseEnterYour.setVerticalAlignment(SwingConstants.TOP);
+		lblPleaseEnterYour.setHorizontalAlignment(SwingConstants.LEFT);
+		contentPane.add(lblPleaseEnterYour);
+		
+		username_1 = new JTextField();
+		username_1.setHorizontalAlignment(SwingConstants.CENTER);
+		username_1.setFont(new Font("Comic Sans MS", Font.BOLD, 15));
+		username_1.setColumns(10);
+		contentPane.add(username_1);
+		
 		btnNewButton = new JButton("Login!");
 		btnNewButton.setFont(new Font("Comic Sans MS", Font.BOLD, 15));
 		btnNewButton.setBounds(10, 50, 90, 70);
@@ -77,6 +98,7 @@ public class Login extends JFrame {
 			}
 		});
 		contentPane.add(btnNewButton);
+		
 	}
 
 }

@@ -49,23 +49,11 @@ public class Services implements SOAPServerInterface{
 
     //This method will return list of available seats in Boeing737 for the chosen slot and day
    
-    public String BoeingList() {
+    public String flightList(String flightNumber) {
 		
-        return airportHandle.showItemList("Boeing737");
-    }
-  
-  //This method will return list of available seats in Airbus319
-    public String AirbusList() {
-		
-        return airportHandle.showItemList("Airbus319");
-    }
-   //takes in the timeslot and day selected for the embraer flgith number and displays the remaining seats in that flight
-    public String EmbraerList() {
-	
-        return airportHandle.showItemList("Embraer170");
+        return airportHandle.showItemList(flightNumber);
     }
     
-   
     public String viewcart (String userID) {
     
     	customerHandle=Singleton.getCustomerhandle(userID);
@@ -76,7 +64,7 @@ public class Services implements SOAPServerInterface{
     //and return success or not success(if item bought by another user and no more same type of item available in airport) 
     //message for each item and make total item in cart as 0 by returning 0
    
-    @SuppressWarnings("unused")
+   
 	public String buyitems(String userID,String flightNumber,String seatNumber) {
     	
     	String messageToUser="";
@@ -95,7 +83,7 @@ public class Services implements SOAPServerInterface{
     			if(sellResponse.equals("Reservation not in Airport!"))
     			messageToUser="This combination of flight Number and seat is already sold out!"+flightNumber+" "+seatNumber;
 			else{
-				messageToUser="<messagetouser>Thanks! Reservation ready for dispatch from airport: "+flightNumber+" "+seatNumber;
+				messageToUser="Thanks! Reservation ready for dispatch from airport: "+flightNumber+" "+seatNumber;
 				}
     			//totalitems=customerHandle.buyReservations();				//remove all item from customer cart
     	return  messageToUser;

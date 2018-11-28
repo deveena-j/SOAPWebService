@@ -20,13 +20,8 @@ public interface SOAPServerInterface {
 	String removefromcart(String flightNumber,String seatNumber,String seatType,String userID);
 	
 	@WebMethod 
-	String BoeingList();
+	String flightList(String flightNumber);
 	
-	@WebMethod 
-	String AirbusList();
-	
-	@WebMethod 
-	String EmbraerList();
 	
 	@WebMethod 
 	String viewcart(String userID);
